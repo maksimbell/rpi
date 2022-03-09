@@ -6,35 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markup-1</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header class="header">
         <div class="container">
             <nav class="header-menu">
-                <a class="header-menu__item header-menu__item_active" href="">Home</a>
-                <a class="header-menu__item" href="">Portfolio</a>
-                <a class="header-menu__item" href="">About us</a>
-                <a class="header-menu__item" href="">Contact</a>
+                <ul class="menu-list">
+                    <li class="menu-list__item menu-list__item_active">
+                        <a class="menu-list__link" href="#home">Home</a>
+                    </li>
+                    <li class="menu-list__item">
+                        <a class="menu-list__link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="menu-list__item">
+                        <a class="menu-list__link" href="#info">About us</a>
+                    </li>
+                    <li class="menu-list__item">
+                        <a class="menu-list__link" href="#contact">Contact</a>
+                    </li>
+                </ul>
             </nav>
-            <div class="header-section">
-                <section class="header-content">
-                    <h1 class="header-content__title">Our strong shit</h1>
+            <div class="header-section section">
+                <div class="header-content">
+                    <h1 class="header-content__title">Our strong organisation</h1>
                     <p class="header-content__paragraph">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Eum id beatae perferendis sit, impedit officiis fugit sint maiores dolor.
                         Voluptas laborum possimus pariatur reiciendis hic itaque modi quam saepe tempora?
                     </p>
-                    <button class="header-content__button">Contact us</button>
-                </section>
-                <video class="header-section__video" src=""></video>
+                    <button class="content-button">Contact us</button>
+                </div>
+                <div class="header-video">
+                    <video class="header-video__video" poster="assets/img/godzillA.webp" controls>
+                        <source src="assets/video/godzillA.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </div>
     </header>
     <main class="main">
         <div class="container">
-            <section class="specialization-section">
+            <section class="specialization-section section">
                 <div class="specialization-content">
-                    <h2 class="specialization-content__title">Do you know what we can provide for you?</h2>
+                    <h2 class="specialization-content__title" id="portfolio">Do you know what we can provide for you?
+                    </h2>
                     <p class="specialization-content__description">Lorem, ipsum dolor sit amet consectetur adipisicing
                         elit.
                         Illo veniam at rerum, dolores distinctio blanditiis? Atque numquam exercitationem
@@ -44,110 +64,182 @@
                     <button class="specialization-content__learn-button">Learn More</button>
                 </div>
                 <div class="specialization-positions">
-                    <div class="position">
-                        <i class="position__icon"></i>
-                        <h5 class="position__title">Management</h5>
-                        <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla,
-                            sed!</p>
+                    <ul class="positions-list">
+                        <li class="position">
+                            <img class="position__icon" src="assets/svg/Settings.svg" alt="Management">
+                            <h5 class="position__title">Management</h5>
+                            <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                Nulla,sed!</p>
+                        </li>
+                        <li class="position">
+                            <img class="position__icon" src="assets/svg/Pencil.svg" alt="Design">
+                            <h5 class="position__title">UI/UX Design</h5>
+                            <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                Nulla,
+                                sed!</p>
+                        </li>
+                        <li class="position">
+                            <img class="position__icon" src="assets/svg/Diamond.svg" alt="Logo">
+                            <h5 class="position__title">Logo/Branding</h5>
+                            <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                Nulla,
+                                sed!</p>
+                        </li>
+                        <li class="position">
+                            <img class="position__icon" src="assets/svg/Truck.svg" alt="Animation">
+                            <h5 class="position__title">Animation</h5>
+                            <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                Nulla,
+                                sed!</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="products-section section">
+                <div class="products-section__body">
+                    <div class="section-description section-description_center">
+                        <h2 class="section-description__title" id="info">Feature products</h2>
+                        <p class="section-description__paragraph">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Nulla, sed</p>
+                        <hr class="section-description__line">
                     </div>
-                    <div class="position">
-                        <i class="position__icon"></i>
-                        <h5 class="position__title">UI/UX Design</h5>
-                        <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla,
-                            sed!</p>
-                    </div>
-                    <div class="position">
-                        <i class="position__icon"></i>
-                        <h5 class="position__title">Logo/Branding</h5>
-                        <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla,
-                            sed!</p>
-                    </div>
-                    <div class="position">
-                        <i class="position__icon"></i>
-                        <h5 class="position__title">Animation</h5>
-                        <p class="position__article">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla,
-                            sed!</p>
+                    <div class="options">
+                        <nav class="options-navigation">
+                            <a class="options-navigation__item options-navigation_active" href="">All</a>
+                            <a class="options-navigation__item" href="">Print Template</a>
+                            <a class="options-navigation__item" href="">Web Template</a>
+                            <a class="options-navigation__item" href="">User Interface</a>
+                            <a class="options-navigation__item" href="">Mock-Up</a>
+                        </nav>
+                        <div class="templates">
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item1.jpg" alt="item1">
+                            </a>
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item2.webp" alt="item2">
+                            </a>
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item1.jpg" alt="item3">
+                            </a>
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item2.webp" alt="item4">
+                            </a>
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item2.webp" alt="item5">
+                            </a>
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item1.jpg" alt="item6">
+                            </a>
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item2.webp" alt="item7">
+                            </a>
+                            <a class="templates__link" href="">
+                                <img class="templates__item" src="assets/img/item1.jpg" alt="item8">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section class="products-section">
-                <div class="products-description">
-                    <h2 class="products-description__title">Feature products</h2>
-                    <p class="products-description__products-paragraph">Lorem ipsum, dolor sit amet consectetur
-                        adipisicing elit. Nulla, sed</p>
-                </div>
-                <div class="options">
-                    <nav class="options-navigation">
-                        <a class="options-navigation options-navigation_active" href="">All</a>
-                        <a class="options-navigation" href="">Print Template</a>
-                        <a class="options-navigation" href="">Web Template</a>
-                        <a class="options-navigation" href="">User Interface</a>
-                        <a class="options-navigation" href="">Mock-Up</a>
-                    </nav>
-                    <div class="templates">
-                        <img class="template" src="" alt="">
-                        <img class="template" src="" alt="">
-                        <img class="template" src="" alt="">
-                        <img class="template" src="" alt="">
-                        <img class="template" src="" alt="">
-                        <img class="template" src="" alt="">
-                        <img class="template" src="" alt="">
-                        <img class="template" src="" alt="">
+            <section class="team-section section">
+                <div class="team-section__body">
+                    <div class="section-description section-description_left">
+                        <h2 class="section-description__title">Meet our team</h2>
+                        <p class="section-description__paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit.
+                            Nulla, sed</p>
+                        <hr class="section-description__line">
                     </div>
-                </div>
-            </section>
-            <section class="team-section">
-                <div class="team-description">
-                    <h2 class="team-description__title">Feature products</h2>
-                    <p class="team-description__team-paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Nulla, sed</p>
-                </div>
-                <div class="team-section__content">
-                    <img class="team-section__leader-img" src="" alt="">
-                    <div class="personal-description">
-                        <h4 class="personal-description__name">Hugh</h4>
-                        <p class="personal-description__paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Nulla, sed</p>
-                        <ul class="personal-description__media-list">
-                            <li class="personal-description__media-item">Facebook</li>
-                            <li class="personal-description__media-item">Dribble</li>
-                            <li class="personal-description__media-item">Behance</li>
-                            <li class="personal-description__media-item">Twitter</li>
-                        </ul>
+                    <div class="team-content">
+                        <div class="picture">
+                            <img class="picture__leader" src="assets/img/boss.jpeg" alt="Real boss">
+                        </div>
+                        <div class="team-profile">
+                            <div class="personal-description">
+                                <h4 class="personal-description__name">Jason</h4>
+                                <p class="personal-description__paragraph">Lorem ipsum dolor sit amet, consectetur
+                                    adipis cing elit, sed dooing eiusmod tempor incididut labore Ui / Ux , print
+                                    template.</p>
+                                <ul class="personal-description__media-list">
+                                    <li class="personal-description__media-item">
+                                        <a class="media-link" href="">Facebook</a>
+                                    </li>
+                                    <li class="personal-description__media-item">
+                                        <a class="media-link" href="">Dribble</a>
+                                    </li>
+                                    <li class="personal-description__media-item">
+                                        <a class="media-link" href="">Behance</a>
+                                    </li>
+                                    <li class="personal-description__media-item">
+                                        <a class="media-link" href="">Twitter</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="team-gallery">
+                                <a class="team-gallery__link" href="">
+                                    <img class="team-gallery__item" src="assets/img/boss.jpeg" alt="person1">
+                                </a>
+                                <a class="team-gallery__link" href="">
+                                    <img class="team-gallery__item" src="assets/img/boss.jpeg" alt="person2">
+                                </a>
+                                <a class="team-gallery__link" href="">
+                                    <img class="team-gallery__item" src="assets/img/boss.jpeg" alt="person3">
+                                </a>
+                                <a class="team-gallery__link" href="">
+                                    <img class="team-gallery__item" src="assets/img/boss.jpeg" alt="person4">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
-        <section class="subscription">
-            <div class="subscription-content">
-                <h2 class="subscription__title">Design tips, tricks and freebies. Delivered weekly</h2>
-                <p class="subscription__description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla,sed
-                </p>
-            </div>
-            <div class="subscription-interface">
-                <input class="subscription-interface__email-input" type="text">
-                <button class="subscription-interface__subscribe-button">Subscribe</button>
+        <section class="subscription-section section">
+            <div class="subscription-section__body">
+                <div class="subscription-content">
+                    <h2 class="subscription-content__title">Design tips, tricks and freebies. Delivered weekly</h2>
+                    <p class="subscription-content__paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit.
+                        Nulla,sed
+                    </p>
+                </div>
+                <form class="subscription-form">
+                    <input class="subscription-form__input" type="text" required placeholder="Email Address..."
+                        pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$">
+                    <button class="content-button">Subscribe</button>
+                </form>
             </div>
         </section>
         <div class="container">
-            <section class="contact-section">
-                <div class="contact-description">
-                    <h3 class="contact-description__title">Get in touch</h3>
-                    <p class="contact-description__contact-paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                        Nulla,sed</p>
-                </div>
-                <div class="contact-content">
-                    <form class="contact-form">
-                        <input class="contact-form__name-input" type="text">
-                        <input class="contact-form__mail-input" type="text">
-                        <input class="contact-form__message-input" type="text">
-                        <button class="contact-form__send-button">Send Message</button>
-                    </form>
-                    <div class="contact-info">
-                        <h6 class="contact-info__title">Contact info</h6>
-                        <p class="contact-info__address">Jalabah 11/2/2</p>
-                        <p class="contact-info__mail">@gmail.com</p>
-                        <p class="contact-info__phone">111-22-33</p>
+            <section class="contact-section section">
+                <div class="contact-section__body">
+                    <div class="section-description section-description_left">
+                        <h3 class="section-description__title" id="contact">Get in touch</h3>
+                        <p class="section-description__paragraph">Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit.
+                            Nulla,sed</p>
+                        <hr class="section-description__line">
+                    </div>
+                    <div class="contact-content">
+                        <form class="contact-form">
+                            <div class="contact-form__contacts">
+                                <input class="form-input" type="text" placeholder="Name" required>
+                                <input class="form-input" type="text" placeholder="Your mail" required>
+                            </div>
+                            <div class="contact-form__message">
+                                <textarea class="form-input contact-form__area" placeholder="Type your message"
+                                    required>
+                                </textarea>
+                            </div>
+                            <div class="contact-form__button">
+                                <button class="content-button form-button">Send Message</button>
+                            </div>
+                        </form>
+                        <!-- <div class="contact-info">
+                            <h6 class="contact-info__title">Contact info</h6>
+                            <p class="contact-info__address">Jalabah 11/2/2</p>
+                            <p class="contact-info__mail">@gmail.com</p>
+                            <p class="contact-info__phone">111-22-33</p>
+                        </div> -->
                     </div>
                 </div>
             </section>
@@ -155,13 +247,23 @@
     </main>
     <footer class="footer">
         <div class="container">
-            <div class="footer-copyright">ALL RIGHTS RESERVED</div>
-            <div class="footer-media">
-                <ul>
-                    <li><a href="" class="footer-media__link"></a></li>
-                    <li><a href="" class="footer-media__link"></a></li>
-                    <li><a href="" class="footer-media__link"></a></li>
-                    <li><a href="" class="footer-media__link"></a></li>
+            <div class="footer-content">
+                <div class="footer-content__copyright">
+                    <p class="footer-content__text">© Copyright @Junaed 2016, All rights reserved.</p>
+                </div>
+                <ul class="footer-media">
+                    <li class="footer-media__item">
+                        <a class="icon icon-twitter" href=""></a>
+                    </li>
+                    <li class="footer-media__item">
+                        <a class="icon icon-linkedin" href=""></a>
+                    </li>
+                    <li class="footer-media__item">
+                        <a class="icon icon-google" href=""></a>
+                    </li>
+                    <li class="footer-media__item">
+                        <a class="icon icon-facebook" href=""></a>
+                    </li>
                 </ul>
             </div>
         </div>
