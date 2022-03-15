@@ -20,7 +20,7 @@ p {
     background-color: rgb(246, 242, 242);
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
 }
 
@@ -44,11 +44,18 @@ button:hover{
 }
 
 .menu-list__item {
+    box-sizing: border-box;
+    width: 180px;
     font-size: 20px;
     text-decoration: none;
     text-transform: uppercase;
     padding: 35px;
-    align-content: center;
+    text-align: center;
+    transform: 0.5s;
+}
+
+.menu-list__link:hover {
+    font-weight: 600;
 }
 
 .menu-list__item_active {
@@ -91,7 +98,7 @@ button:hover{
     margin: 20px 0;
 }
 
-.content-button:hover{
+.content-button:hover {
     background-color: salmon;
 }
 
@@ -147,7 +154,7 @@ button:hover{
     padding: 15px 60px;
 }
 
-.specialization-content__learn-button:hover{
+.specialization-content__learn-button:hover {
     background-color: antiquewhite;
 }
 
@@ -193,7 +200,15 @@ button:hover{
     color: rgb(76, 76, 76);
 }
 
+.options-navigation__item:hover {
+    color: rgb(139, 139, 139);
+}
+
 .options-navigation_active {
+    color: red;
+}
+
+.options-navigation_active:hover {
     color: red;
 }
 
@@ -210,7 +225,12 @@ button:hover{
 }
 
 .templates__item {
+    box-sizing: border-box;
     max-width: 100%;
+}
+
+.templates__item:hover {
+    border: 1px solid rgb(229, 229, 229)
 }
 
 .team-content {
@@ -244,15 +264,19 @@ button:hover{
     gap: 30px;
 }
 
-.team-profile{
+.team-profile {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
-.media-link{
+.media-link {
     text-decoration: none;
     color: rgb(45, 45, 45);
+}
+
+.media-link:hover {
+    text-decoration: underline;
 }
 
 .team-gallery {
@@ -261,9 +285,42 @@ button:hover{
     gap: 30px;
 }
 
+.team-gallery__link{
+    position: relative;
+}
+
+.team-gallery__link:hover .team-gallery__name{
+    margin-bottom: 5px;
+    height: 30px;
+    color: #fff;
+}
+
 .team-gallery__item {
     width: 100%;
     margin-bottom: 0;
+}
+
+.team-gallery__name{
+    color: transparent;
+    margin-bottom: 45px;
+    background-color: black;
+    opacity: 0.502;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    height: 0;
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    transition: 0.3s;
+}
+
+.name-paraghraph{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .subscription-section {
@@ -410,4 +467,8 @@ button:hover{
     padding: 20px;
     background-position: center;
     transition-duration: 0.5s;
+}
+
+.icon:hover {
+    background-size: 70%;
 }
