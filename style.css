@@ -6,6 +6,48 @@
     font-family: 'Bebas Neue', cursive;
 }
 
+.preloader {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background-color: darkslategrey;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    transition: 1s all;
+    opacity: 1;
+    visibility: visible;
+}
+
+.preloader__loader {
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border-radius: 50%;
+    border: 5px solid coral;
+    border-top: 5px dashed springgreen;
+    animation: 2s loading infinite linear;
+}
+
+.done{
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes loading {
+    form {
+        transform: rotate(0deg);
+    }
+
+    to {
+
+        transform: rotate(360deg);
+    }
+}
+
 .container {
     height: 100vh;
     display: flex;
@@ -26,7 +68,7 @@
     align-items: center;
     justify-content: center;
     vertical-align: middle;
-    opacity: .8;
+    opacity: .9;
 }
 
 .time {
@@ -75,11 +117,15 @@
 .calendar {
     padding: 10px 25px;
     border: 1px solid black;
-    opacity: .7;
+    opacity: .4;
     box-sizing: border-box;
     font-size: 20px;
     background-color: white;
     color: black;
+}
+
+.calendar:hover {
+    opacity: .7;
 }
 
 .footer {
@@ -90,4 +136,5 @@
     flex-direction: column;
     align-items: center;
     font-size: 40px;
+    opacity: .8;
 }

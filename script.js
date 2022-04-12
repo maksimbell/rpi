@@ -9,8 +9,6 @@ const explanation = document.querySelector('.footer__explanation');
 
 let greet = 'Good';
 
-// 16.06.1995-first
-
 function showTime() {
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
@@ -31,13 +29,16 @@ function showDate() {
     dateElement.textContent = currentDate;
 }
 
-function getDateCalendarString(date){
+function getDateCalendarString(date) {
     return `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 }
 
 function fillCalendarDay() {
     const date = new Date();
     calendar.value = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+
+    calendar.min = '1995-06-16';
+    calendar.max = calendar.value;
 }
 
 function getTimeOfDay() {
@@ -70,31 +71,44 @@ const addLocalStorageItem = () => {
     localStorage.setItem('name', name.value);
 }
 
-function showTitle(){
-
-}
-
-async function setBackground() {
+function getDataAsync() {
     const date = new Date(calendar.value);
     const url = `https://api.nasa.gov/planetary/apod?api_key=BBa6HP19YvGFhyWhXt3ZVL8ZYWbmhdacoy6zgofP&date=${getDateCalendarString(date)}`;
-    const res = await fetch(url);
-    const data = await res.json();
+
+    let promise = fetch(url)
+        .then(response => response.json())
+        .then((data) => {
+                console.log('ezclap');
+                processData(data);
+            },
+            () => {
+                console.log('no response');
+            });
+}
+
+function processData(data) {
     console.log(data);
 
     body.style.backgroundImage = `url(${data.url})`;
     body.style.backgroundRepeat = `no-repeat`;
     body.style.backgroundSize = `cover`;
     body.style.backgroundPosition = `center`;
-
-    title.textContent = `"${data.title}"`;
-    // explanation.textContent = data.explanation;
+    title.textContent = `"${data.title}"`
 }
 
+function checkCalendarDate() {
+    if (calendar.value.valueAsNumber < calendar.min.valueAsNumber || calendar.value.valueAsNumber > calendar.max.valueAsNumber) {
+        calendar.value = '2022-04-12';
+    }
+}
+
+
 fillCalendarDay();
-setBackground();
+getDataAsync();
 showTime();
 
 // window.addEventListener('beforeunload', addLocalStorageItem);
 window.addEventListener('load', getLocalStorageItem);
 name.addEventListener('input', addLocalStorageItem);
-calendar.addEventListener('change', setBackground);
+calendar.addEventListener('change', getDataAsync);
+// calendar.addEventListener('change', checkCalendarDate);
