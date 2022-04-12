@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    opacity: .8;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    opacity: .8;
+}
+
+.time {
+    min-height: 124px;
+    font-size: 100px;
+}
+
+.date {
+    min-height: 28px;
+    font-size: 24px;
+}
+
+.greeting-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: stretch;
+    align-items: center;
+    min-height: 48px;
+    width: 100vw;
+    font-size: 40px;
+}
+
+.greeting-container__greeting {
+    flex: 1;
+    padding: 10px;
+    text-align: right;
+}
+
+.greeting-container__name {
+    flex: 1;
+    max-width: 50%;
+    padding: 10px;
+    font-size: 40px;
+    text-align: left;
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+
+.name::placeholder {
+    color: #fff;
+    opacity: .6;
+}
+
+.calendar {
+    padding: 10px 25px;
+    border: 1px solid black;
+    opacity: .7;
+    box-sizing: border-box;
+    font-size: 20px;
+    background-color: white;
+    color: black;
+}
+
+.footer {
+    padding: 100px;
+    position: relative;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+}
