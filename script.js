@@ -1,4 +1,6 @@
+'use strict'
 const body = document.body;
+const preloader = document.querySelector('.preloader');
 const time = document.querySelector('.time');
 const dateElement = document.querySelector('.date');
 const greeting = document.querySelector('.greeting-container__greeting');
@@ -8,6 +10,7 @@ const title = document.querySelector('.footer__title');
 const explanation = document.querySelector('.footer__explanation');
 
 let greet = 'Good';
+const minDate = '1995-06-16';
 
 function showTime() {
     const date = new Date();
@@ -30,14 +33,14 @@ function showDate() {
 }
 
 function getDateCalendarString(date) {
-    return `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-}
+    return `${date.getFullYear()}-${(date.getMonth()).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+} //+1
 
 function fillCalendarDay() {
     const date = new Date();
-    calendar.value = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    calendar.value = getDateCalendarString(date);
 
-    calendar.min = '1995-06-16';
+    calendar.min = minDate;
     calendar.max = calendar.value;
 }
 
@@ -74,26 +77,34 @@ const addLocalStorageItem = () => {
 function getDataAsync() {
     const date = new Date(calendar.value);
     const url = `https://api.nasa.gov/planetary/apod?api_key=BBa6HP19YvGFhyWhXt3ZVL8ZYWbmhdacoy6zgofP&date=${getDateCalendarString(date)}`;
+    preloader.classList.remove('preloader__loader_done');
 
-    let promise = fetch(url)
-        .then(response => response.json())
+    const promise = fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
         .then((data) => {
                 console.log('ezclap');
                 processData(data);
             },
             () => {
                 console.log('no response');
-            });
+            }).catch((err) => console.error(err));
 }
 
 function processData(data) {
     console.log(data);
+    body.style.background.addEventListener('load', () => {
+        preloader.classList.add('preloader__loader_done');
+    });
 
     body.style.backgroundImage = `url(${data.url})`;
     body.style.backgroundRepeat = `no-repeat`;
     body.style.backgroundSize = `cover`;
     body.style.backgroundPosition = `center`;
-    title.textContent = `"${data.title}"`
+    title.textContent = `"${data.title}"`;
 }
 
 function checkCalendarDate() {
@@ -102,13 +113,10 @@ function checkCalendarDate() {
     }
 }
 
-
 fillCalendarDay();
 getDataAsync();
 showTime();
 
-// window.addEventListener('beforeunload', addLocalStorageItem);
 window.addEventListener('load', getLocalStorageItem);
 name.addEventListener('input', addLocalStorageItem);
 calendar.addEventListener('change', getDataAsync);
-// calendar.addEventListener('change', checkCalendarDate);
