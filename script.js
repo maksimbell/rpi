@@ -77,7 +77,6 @@ const addLocalStorageItem = () => {
 function getDataAsync() {
     const date = new Date(calendar.value);
     const url = `https://api.nasa.gov/planetary/apod?api_key=BBa6HP19YvGFhyWhXt3ZVL8ZYWbmhdacoy6zgofP&date=${getDateCalendarString(date)}`;
-    preloader.classList.remove('preloader__loader_done');
 
     const promise = fetch(url)
         .then(response => {
@@ -88,22 +87,23 @@ function getDataAsync() {
         .then((data) => {
                 console.log('ezclap');
                 processData(data);
+
+                setTimeout(() => {
+                    preloader.classList.add('preloader__loader_done');
+                }, 1000);
             },
             () => {
                 console.log('no response');
-            }).catch((err) => console.error(err));
+            })
 }
 
 function processData(data) {
     console.log(data);
-    body.style.background.addEventListener('load', () => {
-        preloader.classList.add('preloader__loader_done');
-    });
 
     body.style.backgroundImage = `url(${data.url})`;
     body.style.backgroundRepeat = `no-repeat`;
-    body.style.backgroundSize = `cover`;
     body.style.backgroundPosition = `center`;
+    body.style.backgroundSize = `cover`;
     title.textContent = `"${data.title}"`;
 }
 
@@ -119,4 +119,7 @@ showTime();
 
 window.addEventListener('load', getLocalStorageItem);
 name.addEventListener('input', addLocalStorageItem);
+calendar.addEventListener('change', () => {
+    preloader.classList.remove('preloader__loader_done');
+});
 calendar.addEventListener('change', getDataAsync);

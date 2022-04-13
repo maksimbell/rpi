@@ -6,6 +6,13 @@
     font-family: 'Bebas Neue', cursive;
 }
 
+.body{
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    transition: 2s;
+}
+
 .preloader {
     position: fixed;
     top: 0px;
@@ -16,7 +23,7 @@
     z-index: 2;
     display: flex;
     align-items: center;
-    transition: 1s;
+    transition: .1s;
     opacity: 1;
     visibility: visible;
 }
