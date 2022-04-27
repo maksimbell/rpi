@@ -33,7 +33,7 @@ function showDate() {
 }
 
 function getDateCalendarString(date) {
-    return `${date.getFullYear()}-${(date.getMonth()).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    return `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 } //+1
 
 function fillCalendarDay() {
@@ -90,7 +90,7 @@ function getDataAsync() {
 
                 setTimeout(() => {
                     preloader.classList.add('preloader__loader_done');
-                }, 1000);
+                }, 2000);
             },
             () => {
                 console.log('no response');
@@ -100,11 +100,16 @@ function getDataAsync() {
 function processData(data) {
     console.log(data);
 
-    body.style.backgroundImage = `url(${data.url})`;
+    if (data.media_type == `video`) {
+        body.style.backgroundImage = `url(assets/img/interstellar.jpg)`;
+        title.textContent = `"Nothing here"`;
+    } else {
+        body.style.backgroundImage = `url(${data.url})`;
+        title.textContent = `"${data.title}"`;
+    }
     body.style.backgroundRepeat = `no-repeat`;
     body.style.backgroundPosition = `center`;
     body.style.backgroundSize = `cover`;
-    title.textContent = `"${data.title}"`;
 }
 
 function checkCalendarDate() {

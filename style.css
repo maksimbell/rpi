@@ -20,6 +20,7 @@
     height: 100%;
     width: 100%;
     background-color: darkslategrey;
+    /* background: url(assets/img/interstellar.jpg); */
     z-index: 2;
     display: flex;
     align-items: center;
@@ -119,6 +120,7 @@
 .name::placeholder {
     color: #fff;
     opacity: .6;
+    font-family: 'Bebas Neue', cursive;
 }
 
 .calendar {
