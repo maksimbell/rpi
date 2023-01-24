@@ -34,7 +34,7 @@ function showDate() {
 }
 
 function getDateCalendarString(date) {
-    return `${date.getFullYear()}-${(date.getMonth()).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+    return `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
 } //+1
 
 function fillCalendarDay() {
